@@ -1,0 +1,8 @@
+.error {
+  color: red;
+  font-size: 36px;
+  margin-top: 15px;
+  font-weight: 700;
+  max-width: 350px;
+  text-align: center;
+}

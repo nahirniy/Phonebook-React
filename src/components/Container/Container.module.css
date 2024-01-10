@@ -1,0 +1,40 @@
+.container {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 2px solid #f6f6f6;
+  background: #202024;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 579px;
+  min-height: 600px;
+  padding: 30px;
+  gap: 10px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  scrollbar-color: rgba(17, 17, 17, 0.8) transparent;
+}
+
+.container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.container::-webkit-scrollbar-track {
+  border-radius: 12px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  height: calc(100% - 20px);
+  background-color: rgba(17, 17, 17, 0.8);
+  border-radius: 12px;
+}
+
+.title {
+  color: #f6f6f6;
+  font-size: 38px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}

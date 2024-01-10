@@ -1,0 +1,34 @@
+.item {
+  white-space: nowrap;
+  font-size: 20px;
+  color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.contact_text {
+  display: block;
+  /* min-width: 300px; */
+}
+
+.btn {
+  border: none;
+  background-color: #f6f6f6;
+  padding: 10px 20px;
+  color: #202024;
+  border-radius: 40px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all ease-in-out 300ms;
+  cursor: pointer;
+  text-transform: capitalize;
+  margin-left: 10px;
+  font-weight: 500;
+  font-family: 'DM Sans';
+}
+
+.btn:hover {
+  background-color: #4f2ee8;
+  color: #f6f6f6;
+}
