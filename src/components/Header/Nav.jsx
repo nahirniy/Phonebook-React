@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
-import {
-  mobileNavContainerVariant,
-  mobileNavListVariant,
-  mobileNavExitProps,
-} from '../../services/animationConfig';
+// import { AnimatePresence, motion } from 'framer-motion';
+// import {
+//   mobileNavContainerVariant,
+//   mobileNavListVariant,
+//   mobileNavExitProps,
+// } from '../../services/animationConfig';
 import { NavLink, useLocation } from 'react-router-dom';
 
 const activeClassName = 'selected navlink';
