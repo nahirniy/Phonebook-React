@@ -1,4 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   margin: 0;
@@ -13,6 +16,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'DM Sans';
   overflow-x: hidden;
+  color: white;
 }
 
 code {
