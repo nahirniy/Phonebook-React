@@ -2,8 +2,8 @@ import { Formik } from 'formik';
 
 import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
-import FormButton from 'common/components/Form/FormButton';
 import RegisterLoginLinks from 'common/components/Form/RegisterLoginLinks';
+import Button from 'common/components/Button';
 
 const RegisterForm = () => {
   const handleSubmit = value => {
@@ -16,7 +16,7 @@ const RegisterForm = () => {
         <Input type="text" name="Name" />
         <Input type="email" name="Email" />
         <Input type="password" name="Password" />
-        <FormButton name="Register" />
+        <Button type="submit">Register</Button>
         <RegisterLoginLinks title="Register" />
       </Form>
     </Formik>

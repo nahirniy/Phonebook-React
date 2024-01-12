@@ -1,15 +1,7 @@
-import MemorizedAnimation from 'components/HomeContent/Animation';
-import { useState } from 'react';
+import Introduction from 'components/HomeContent/Introduction';
 
 const Home = () => {
-  const [count, setCount] = useState(1);
-
-  return (
-    <>
-      <button onClick={() => setCount(prevCount => prevCount + 1)}>Count {count}</button>
-      <MemorizedAnimation />;
-    </>
-  );
+  return <Introduction />;
 };
 
 export default Home;

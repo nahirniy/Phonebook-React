@@ -20,9 +20,11 @@
     "react-dom": "^18.1.0",
     "react-icons": "^5.0.0",
     "react-loader-spinner": "^6.1.6",
+    "react-parallax-tilt": "^1.7.184",
     "react-redux": "^9.0.4",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
+    "react-tilt": "^1.0.2",
     "redux-persist": "^6.0.0",
     "tsparticles": "^3.0.3",
     "web-vitals": "^2.1.3"

@@ -1,12 +1,12 @@
-const FormButton = ({ name }) => {
+const Button = ({ type = 'submit', children }) => {
   return (
     <button
-      type="submit"
+      type={type}
       className="w-full mb-4 text-[18px] mt-6 rounded-full bg-white text-emerald-800 hover:bg-emerald-600 hover:text-white py-2 transition-colors duration-300"
     >
-      {name}
+      {children}
     </button>
   );
 };
 
-export default FormButton;
+export default Button;
