@@ -13,6 +13,7 @@
     "axios": "^1.6.5",
     "formik": "^2.4.5",
     "framer-motion": "^10.18.0",
+    "lottie-react": "^2.4.0",
     "lucide-react": "^0.309.0",
     "notiflix": "^3.2.6",
     "react": "^18.1.0",

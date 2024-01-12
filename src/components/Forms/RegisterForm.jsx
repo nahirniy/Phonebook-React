@@ -11,7 +11,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <Formik initialValues={{ text: '', email: '', password: '' }} onSubmit={handleSubmit}>
+    <Formik initialValues={{ name: '', email: '', password: '' }} onSubmit={handleSubmit}>
       <Form title="Register">
         <Input type="text" name="Name" />
         <Input type="email" name="Email" />

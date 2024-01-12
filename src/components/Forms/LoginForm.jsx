@@ -11,7 +11,7 @@ const LoginForm = () => {
   };
 
   return (
-    <Formik initialValues={{ text: '', email: '', password: '' }} onSubmit={handleSubmit}>
+    <Formik initialValues={{ email: '', password: '' }} onSubmit={handleSubmit}>
       <Form title="Login">
         <Input type="email" name="Email" />
         <Input type="password" name="Password" />
