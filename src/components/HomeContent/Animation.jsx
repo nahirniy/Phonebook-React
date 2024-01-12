@@ -1,5 +1,5 @@
 import Lottie from 'lottie-react';
-import { memo, useMemo } from 'react';
+import { memo } from 'react';
 
 import animationData from '../../data/phone-animation.json';
 
