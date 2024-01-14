@@ -7,10 +7,10 @@
 import { Route, Routes } from 'react-router-dom';
 
 import SharedLayout from './SharedLayout/SharedLayout';
-import Home from 'pages/Home/Home';
-import Register from 'pages/Register/Register';
-import Login from 'pages/Login/Login';
-import Contacts from 'pages/Contacts/Contacts';
+import Home from 'pages/Home';
+import Register from 'pages/Register';
+import Login from 'pages/Login';
+import Contacts from 'pages/Contacts';
 
 export const App = () => {
   return (

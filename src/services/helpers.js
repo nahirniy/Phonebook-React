@@ -1,4 +1,16 @@
 import { Notify } from 'notiflix';
+import toast from 'react-hot-toast';
+
+export const handleError = error => {
+  const errorEmail = Boolean(error.data.keyValue?.email);
+  const errorPassword = Boolean(error.data.errors?.password);
+
+  if (errorEmail) return toast.error('This email is already registered');
+
+  if (errorPassword) return toast.error('Password must contain more than 7 characters');
+
+  toast.error('Incorrect password or email');
+};
 
 export function isContactDublicate(contacts, newContact) {
   const inContact = contacts.some(

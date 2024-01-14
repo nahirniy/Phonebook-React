@@ -15,6 +15,7 @@ const TYPE = {
 
 const Input = ({ type, name, label }) => {
   const currentId = nanoid();
+  const iconClassName = 'absolute top-4 right-4';
 
   return (
     <div className="relative my-4">
@@ -32,10 +33,10 @@ const Input = ({ type, name, label }) => {
       >
         {label}
       </label>
-      {type === TYPE.TEXT && <BiUser className="absolute top-4 right-4" />}
-      {type === TYPE.EMAIL && <MdOutlineMail className="absolute top-4 right-4" />}
-      {type === TYPE.PASSWORD && <AiOutlineUnlock className="absolute top-4 right-4" />}
-      {type === TYPE.TEL && <FiPhone className="absolute top-4 right-4" />}
+      {type === TYPE.TEXT && <BiUser className={iconClassName} />}
+      {type === TYPE.EMAIL && <MdOutlineMail className={iconClassName} />}
+      {type === TYPE.PASSWORD && <AiOutlineUnlock className={iconClassName} />}
+      {type === TYPE.TEL && <FiPhone className={iconClassName} />}
     </div>
   );
 };

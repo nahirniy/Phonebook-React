@@ -1,19 +1,24 @@
-import { shallowEqual, useSelector } from 'react-redux';
-import { selectVisibleContacts } from '../../../redux/selectors';
-import { ContactItem } from './ContactItem/ContactItem';
-import css from './ContactList.module.css';
+// import { shallowEqual, useSelector } from 'react-redux';
+// import { selectVisibleContacts } from '../../../redux/selectors';
+import ContactItem from './ContactItem';
 
-export const ContactList = () => {
-  const visibleContacts = useSelector(selectVisibleContacts, shallowEqual);
+import { useGetContactsQuery } from 'services/contactsApi';
 
+const ContactList = () => {
+  const { data: contacts } = useGetContactsQuery();
+  console.log(contacts);
+  // const [p, respp] = useLoginMutation();
+  // console.log(respp);
+  // console.log(resp);
   return (
-    <>
-      {!visibleContacts.length && <h2 className={css.not_found}>No contact found</h2>}
-      <ul className={css.contact_list}>
-        {visibleContacts.map(({ id, name, phone }) => {
-          return <ContactItem key={id} id={id} name={name} phone={phone} />;
-        })}
+    <div className="bg-slate-800 border border-slate-400 rounded-md p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative inline-block max-w-[340px] md:max-w-[540px] min-h-content">
+      <ul className="flex flex-col gap-5">
+        {contacts?.map(({ id, name, number }) => (
+          <ContactItem key={id} id={id} name={name} number={number} />
+        ))}
       </ul>
-    </>
+    </div>
   );
 };
+
+export default ContactList;
