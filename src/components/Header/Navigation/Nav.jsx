@@ -21,6 +21,9 @@ const Nav = ({ activeStyle }) => {
     <>
       <nav className="flex flex-[1] items-center justify-end overflow-hidden">
         <div className="hidden justify-end md:flex">
+          <NavLink to="/contacts" className={activeStyle}>
+            Contacts
+          </NavLink>
           <NavLink to="/register" className={activeStyle}>
             Register
           </NavLink>

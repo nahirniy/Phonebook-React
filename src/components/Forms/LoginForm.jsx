@@ -13,8 +13,8 @@ const LoginForm = () => {
   return (
     <Formik initialValues={{ email: '', password: '' }} onSubmit={handleSubmit}>
       <Form title="Login">
-        <Input type="email" name="Email" />
-        <Input type="password" name="Password" />
+        <Input type="email" name="email" label="Your Email" />
+        <Input type="password" name="password" label="Your Password" />
         <Button type="submit">Login</Button>
         <RegisterLoginLinks title="Login" />
       </Form>

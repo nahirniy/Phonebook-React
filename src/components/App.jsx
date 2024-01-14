@@ -10,6 +10,7 @@ import SharedLayout from './SharedLayout/SharedLayout';
 import Home from 'pages/Home/Home';
 import Register from 'pages/Register/Register';
 import Login from 'pages/Login/Login';
+import Contacts from 'pages/Contacts/Contacts';
 
 export const App = () => {
   return (
@@ -25,6 +26,7 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
+        <Route path="contacts" element={<Contacts />} />
         <Route path="register" element={<Register />} />
         <Route path="login-in" element={<Login />} />
       </Route>

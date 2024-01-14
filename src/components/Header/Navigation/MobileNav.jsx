@@ -18,6 +18,11 @@ const MobileNav = ({ activeStyle }) => {
       className="mt-4 basis-full md:hidden"
     >
       <motion.div variants={mobileNavListVariant} {...mobileNavExitProps}>
+        <NavLink to="/contacts" className={activeStyle}>
+          Register
+        </NavLink>
+      </motion.div>
+      <motion.div variants={mobileNavListVariant} {...mobileNavExitProps}>
         <NavLink to="/register" className={activeStyle}>
           Register
         </NavLink>
