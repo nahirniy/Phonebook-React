@@ -19,7 +19,7 @@ const MobileNav = ({ activeStyle }) => {
     >
       <motion.div variants={mobileNavListVariant} {...mobileNavExitProps}>
         <NavLink to="/contacts" className={activeStyle}>
-          Register
+          Contacts
         </NavLink>
       </motion.div>
       <motion.div variants={mobileNavListVariant} {...mobileNavExitProps}>
