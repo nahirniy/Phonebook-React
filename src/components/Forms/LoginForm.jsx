@@ -7,7 +7,7 @@ import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
 import RegisterLoginLinks from 'common/components/Form/RegisterLoginLinks';
 import Button from 'common/components/Button';
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from 'common/components/Loader';
 import { useLoginMutation } from 'services/authApi';
 import { setToken } from '../../redux/authSlice';
 import { useDispatch } from 'react-redux';
@@ -22,7 +22,8 @@ const LoginForm = () => {
 
     dispatch(setToken(data.token));
 
-    // navigate('/contacts');
+    navigate('/contacts');
+
     toast.success('Welcome to phonebook!');
   }, [data, isSuccess, navigate, dispatch]);
 

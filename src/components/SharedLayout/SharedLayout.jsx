@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 
 import Header from 'components/Header/Header';
 import ParticleBackground from 'components/ParticlesBackground/ParticlesBackground';
-import Section from 'components/Section/Section';
+import Section from 'common/components/Section';
 import { Toaster } from 'react-hot-toast';
 
 const SharedLayout = () => {

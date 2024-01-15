@@ -5,7 +5,6 @@ import { store } from './redux/store';
 
 import { App } from 'components/App';
 import './index.css';
-import './services/contacts-api';
 import './services/authApi';
 import { BrowserRouter } from 'react-router-dom';
 

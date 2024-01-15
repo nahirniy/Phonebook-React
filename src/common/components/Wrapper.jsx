@@ -1,6 +1,6 @@
 const Wrapper = ({ children }) => {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-28">{children}</div>
+    <div className="flex flex-wrap items-start justify-center gap-28">{children}</div>
   );
 };
 

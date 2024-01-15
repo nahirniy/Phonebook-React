@@ -8,7 +8,7 @@ import Input from 'common/components/Form/Input';
 import RegisterLoginLinks from 'common/components/Form/RegisterLoginLinks';
 import Button from 'common/components/Button';
 import { useRegisterMutation } from 'services/authApi';
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from 'common/components/Loader';
 
 // import { fetchError, fetchNewUser } from 'services/fetch-user';
 
