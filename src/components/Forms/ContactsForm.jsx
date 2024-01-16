@@ -6,14 +6,12 @@ import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
 import Button from 'common/components/Button';
 import { useAddContactMutation, useGetContactsQuery } from 'services/contactsApi';
-import { Loader } from 'common/components/Loader';
+import  Loader  from 'common/components/Loader';
 import { isContactDublicate } from 'services/helpers';
 
 const ContactsForm = () => {
   const [addContact, { isLoading, isError, isSuccess, error }] = useAddContactMutation();
-  const { data: contacts, isLoading: loadingGet } = useGetContactsQuery();
-
-  const loading = isLoading || loadingGet;
+  const { data: contacts } = useGetContactsQuery();
 
   useEffect(() => {
     if (!isSuccess) return;
@@ -40,7 +38,7 @@ const ContactsForm = () => {
       <Form title="Phonebook">
         <Input type="text" name="name" label="Contact Name" />
         <Input type="tel" name="number" label="Contact Number" />
-        <Button type="submit">{loading ? <Loader /> : 'Add New Contact'}</Button>
+        <Button type="submit">{isLoading ? <Loader /> : 'Add New Contact'}</Button>
       </Form>
     </Formik>
   );

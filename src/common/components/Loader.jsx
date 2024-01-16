@@ -1,10 +1,10 @@
 import { ThreeDots } from 'react-loader-spinner';
 
-export const Loader = () => {
+const Loader = ({ size = 50 }) => {
   return (
     <ThreeDots
-      height="50"
-      width="50"
+      height={size}
+      width={size}
       radius="9"
       color="#212121"
       ariaLabel="three-dots-loading"
@@ -14,3 +14,5 @@ export const Loader = () => {
     />
   );
 };
+
+export default Loader;

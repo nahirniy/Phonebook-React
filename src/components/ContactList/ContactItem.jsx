@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
-import { Loader } from 'common/components/Loader';
+import Loader from 'common/components/Loader';
 import { useDeleteContactMutation, useGetContactsQuery } from 'services/contactsApi';
 
 const ContactItem = ({ id, name, number }) => {
@@ -23,7 +23,7 @@ const ContactItem = ({ id, name, number }) => {
   }, [isError]);
 
   return (
-    <li className="flex md:gap-9 justify-between items-center border rounded-lg  p-2">
+    <li className="flex md:gap-9 justify-between items-center border rounded-lg p-2">
       <p className="flex flex-col gap-1">
         <span className="block">
           <b>Name:</b> {name}
@@ -38,7 +38,7 @@ const ContactItem = ({ id, name, number }) => {
         disabled={loading}
         onClick={() => deleteContact(id)}
       >
-        {loading ? <Loader /> : 'Delete'}
+        {loading ? <Loader size="40" /> : 'Delete'}
       </button>
     </li>
   );

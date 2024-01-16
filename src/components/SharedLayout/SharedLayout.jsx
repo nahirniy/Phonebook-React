@@ -2,37 +2,19 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from 'components/Header/Header';
-import ParticleBackground from 'components/ParticlesBackground/ParticlesBackground';
+import ParticleBackground from '../../common/components/ParticlesBackground/ParticlesBackground';
 import Section from 'common/components/Section';
-import { Toaster } from 'react-hot-toast';
+import ToasterMessage from 'common/components/Toaster';
+import Loader from 'common/components/Loader';
 
 const SharedLayout = () => {
   return (
     <>
-      <Toaster
-        position="top-center"
-        toastOptions={{
-          success: {
-            style: {
-              duration: 4000,
-              background: '#3d8d1a',
-              color: '#ffffff',
-            },
-          },
-          error: {
-            style: {
-              duration: 4000,
-
-              background: '#9a1524',
-              color: '#ffffff',
-            },
-          },
-        }}
-      />
+      <ToasterMessage />
       <Header />
       <ParticleBackground />
       <Section>
-        <Suspense fallback="Loading...">
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </Section>

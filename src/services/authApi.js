@@ -14,17 +14,25 @@ const baseQuery = fetchBaseQuery({
 export const authApi = createApi({
   reducerPath: 'authorization',
   baseQuery,
-  tagTypes: ['Token'],
   endpoints: builder => ({
     register: builder.mutation({
       query: body => ({ url: '/users/signup', method: 'POST', body }),
-      providesTags: ['Token'],
     }),
     login: builder.mutation({
       query: body => ({ url: '/users/login', method: 'POST', body }),
-      providesTags: ['Token'],
+    }),
+    logout: builder.mutation({
+      query: body => ({ url: '/users/logout', method: 'POST', body }),
+    }),
+    getUser: builder.query({
+      query: () => '/users/current',
     }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation } = authApi;
+export const {
+  useRegisterMutation,
+  useLoginMutation,
+  useLogoutMutation,
+  useGetUserQuery,
+} = authApi;

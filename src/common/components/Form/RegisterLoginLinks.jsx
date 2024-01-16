@@ -20,7 +20,7 @@ const RegisterLoginLinks = ({ title }) => {
         {title === TITLE.REGISTER && (
           <div className="flex justify-between">
             Already Created an Account?
-            <Link to="/login-in" className="text-blue-500 ml-3">
+            <Link to="/login" className="text-blue-500 ml-3">
               Login
             </Link>
           </div>

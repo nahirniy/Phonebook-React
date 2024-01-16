@@ -22,5 +22,7 @@ export function isContactDublicate(contacts, newContact) {
 }
 
 export function getVisibleConatcts(contacts, filter) {
-  return contacts?.filter(({ name }) => name.toLowerCase().includes(filter));
+  const inContact = contacts?.filter(({ name }) => name.toLowerCase().includes(filter));
+
+  return inContact;
 }

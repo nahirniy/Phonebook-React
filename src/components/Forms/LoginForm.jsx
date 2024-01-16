@@ -1,31 +1,29 @@
 import { Formik } from 'formik';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
 import RegisterLoginLinks from 'common/components/Form/RegisterLoginLinks';
 import Button from 'common/components/Button';
-import { Loader } from 'common/components/Loader';
+import Loader from 'common/components/Loader';
+
 import { useLoginMutation } from 'services/authApi';
-import { setToken } from '../../redux/authSlice';
-import { useDispatch } from 'react-redux';
+import { setToken, setUser } from '../../redux/authSlice';
 
 const LoginForm = () => {
   const [login, { data, isLoading, isError, isSuccess }] = useLoginMutation();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!isSuccess) return;
 
     dispatch(setToken(data.token));
-
-    navigate('/contacts');
+    dispatch(setUser(data.user));
 
     toast.success('Welcome to phonebook!');
-  }, [data, isSuccess, navigate, dispatch]);
+  }, [data, isSuccess, dispatch]);
 
   useEffect(() => {
     if (!isError) return;
@@ -42,7 +40,7 @@ const LoginForm = () => {
       <Form title="Login">
         <Input type="email" name="email" label="Your Email" />
         <Input type="password" name="password" label="Your Password" />
-        <Button type="submit">{isLoading ? <Loader /> : 'Register'}</Button>
+        <Button type="submit">{isLoading ? <Loader /> : 'Login'}</Button>
         <RegisterLoginLinks title="Login" />
       </Form>
     </Formik>
