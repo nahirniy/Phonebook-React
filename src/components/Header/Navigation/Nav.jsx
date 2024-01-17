@@ -6,12 +6,15 @@ import { AnimatePresence } from 'framer-motion';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import MobileNav from './MobileNav';
-import UserMenu from './UserMenu';
+import UserMenu from '../UserMenu/UserMenu';
 
-const Nav = ({ activeStyle }) => {
+const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const isAuth = useSelector(state => state.auth.token);
+  const isAuth = useSelector(state => state.userData.auth.token);
   const location = useLocation();
+
+  const activeClassName = 'selected navlink';
+  const activeStyle = ({ isActive }) => (isActive ? activeClassName : 'navlink');
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
@@ -23,7 +26,7 @@ const Nav = ({ activeStyle }) => {
 
   return (
     <>
-      <nav className="flex flex-[1] items-center justify-end overflow-hidden">
+      <nav className="flex items-center justify-end overflow-hidden">
         <div className="hidden justify-end md:flex">
           {!isAuth && (
             <>

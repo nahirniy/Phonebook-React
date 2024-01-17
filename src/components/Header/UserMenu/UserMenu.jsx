@@ -9,7 +9,7 @@ import Loader from 'common/components/Loader';
 import { CiLogout } from 'react-icons/ci';
 
 const UserMenu = () => {
-  const { name } = useSelector(state => state.auth.user);
+  const { name } = useSelector(state => state.userData.auth.user);
   const [logout, { isLoading, isError, isSuccess }] = useLogoutMutation();
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const UserMenu = () => {
   }, [isError]);
 
   return (
-    <div className="justify-center  mt-[25px] md:ml-16 flex md:justify-normal md:mt-[0]  items-center gap-4">
+    <div className="justify-center  mt-[25px] md:ml-12 flex md:justify-normal md:mt-[0]  items-center gap-4">
       <p className="text-[16px] flex gap-2 justify-between items-center border rounded-lg p-2">
         <b>User:</b> {name}
       </p>

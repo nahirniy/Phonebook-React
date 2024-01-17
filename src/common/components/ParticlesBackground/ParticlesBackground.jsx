@@ -3,9 +3,12 @@ import Particles, { initParticlesEngine } from '@tsparticles/react';
 import { loadFull } from 'tsparticles';
 
 import particlesConfig from './config/particles-config';
+import particlesConfigLight from './config/particles-config-light';
+import { useSelector } from 'react-redux';
 
 const ParticleBackground = () => {
   const [init, setInit] = useState(false);
+  const theme = useSelector(state => state.userData.theme.value);
 
   useEffect(() => {
     initParticlesEngine(async engine => {
@@ -15,7 +18,13 @@ const ParticleBackground = () => {
     });
   }, []);
 
-  const options = useMemo(() => ({ ...particlesConfig }), []);
+  const options = useMemo(() => {
+    if (theme === 'dark') {
+      return { ...particlesConfig };
+    }
+
+    return { ...particlesConfigLight };
+  }, [theme]);
 
   if (init) {
     return <Particles options={options} />;

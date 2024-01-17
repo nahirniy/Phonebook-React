@@ -1,10 +1,4 @@
-// import { ContactContent } from './ContactContent/ContactConten';
-// import { ContactForm } from './ContactForm/ContactForm';
-// import { Filter } from './Filter/Filter';
-// import { Container } from './Container/Container';
-// import { Section } from './Section/Section';
-
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import SharedLayout from './SharedLayout/SharedLayout';
 import Home from 'pages/Home';
@@ -16,43 +10,14 @@ import PublicRoute from './Route/PublicRoute';
 
 export const App = () => {
   return (
-    // <Section>
-    //   <Container title="Phonebook">
-    //     <ContactForm />
-    //   </Container>
-    //   <Container title="Contacts">
-    //     <Filter />
-    //     <ContactContent />
-    //   </Container>
-    // </Section>
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
-        <Route
-          path="contacts"
-          element={
-            <PrivateRoute>
-              <Contacts />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="register"
-          element={
-            <PublicRoute>
-              <Register />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="login"
-          element={
-            <PublicRoute>
-              <Login />
-            </PublicRoute>
-          }
-        />
+        <Route path="contacts" element={<PrivateRoute element={<Contacts />} />} />
+        <Route path="register" element={<PublicRoute element={<Register />} />} />
+        <Route path="login" element={<PublicRoute element={<Login />} />} />
       </Route>
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

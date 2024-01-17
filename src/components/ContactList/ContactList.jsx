@@ -7,7 +7,7 @@ import { useGetContactsQuery } from 'services/contactsApi';
 
 const ContactList = () => {
   const { data: contacts } = useGetContactsQuery();
-  const filter = useSelector(state => state.filter.filter);
+  const filter = useSelector(state => state.filter.value);
 
   const visibleContacts = getVisibleConatcts(contacts, filter);
 
@@ -15,7 +15,7 @@ const ContactList = () => {
   const contactsExist = Boolean(contacts?.length);
 
   return (
-    <div className="bg-slate-800 border border-slate-400 rounded-md p-4 md:p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-30 relative inline-block max-w-[320px] md:max-w-[540px] md:min-w-[436px] min-h-[310px]">
+    <div className="bg-slate-900 border border-slate-400 rounded-md p-4 md:p-8 shadow-lg backdrop-filter backdrop-blur-sm bg-opacity-90 relative inline-block max-w-[320px] md:max-w-[540px] md:min-w-[436px] min-h-[310px] dark:bg-opacity-30">
       <h2 className="text-4xl text-white font-bold text-center mb-6">Contacts</h2>
       <div>
         {contactsExist && <ContactFilter />}
