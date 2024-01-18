@@ -4,10 +4,11 @@ import toast from 'react-hot-toast';
 
 import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
-import Button from 'common/components/Button';
+import Button from 'common/components/Buttons/Button';
 import { useAddContactMutation, useGetContactsQuery } from 'services/contactsApi';
-import  Loader  from 'common/components/Loader';
+import Loader from 'common/components/Feedbacks/Loader';
 import { isContactDublicate } from 'services/helpers';
+import { validateContact } from 'services/validataion';
 
 const ContactsForm = () => {
   const [addContact, { isLoading, isError, isSuccess, error }] = useAddContactMutation();
@@ -27,8 +28,9 @@ const ContactsForm = () => {
 
   const handleSubmit = newContact => {
     const inContact = isContactDublicate(contacts, newContact);
+    const isValidate = validateContact(newContact);
 
-    if (inContact) return;
+    if (inContact || !isValidate) return;
 
     addContact(newContact);
   };

@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { setToken, setUser } from '../../../redux/authSlice';
 import { useLogoutMutation } from 'services/authApi';
-import Loader from 'common/components/Loader';
+import Loader from 'common/components/Feedbacks/Loader';
 
 import { CiLogout } from 'react-icons/ci';
 

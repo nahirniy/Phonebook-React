@@ -6,11 +6,12 @@ import { useDispatch } from 'react-redux';
 import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
 import RegisterLoginLinks from 'common/components/Form/RegisterLoginLinks';
-import Button from 'common/components/Button';
-import Loader from 'common/components/Loader';
+import Button from 'common/components/Buttons/Button';
+import Loader from 'common/components/Feedbacks/Loader';
 
 import { useLoginMutation } from 'services/authApi';
 import { setToken, setUser } from '../../redux/authSlice';
+import { validateUser } from 'services/validataion';
 
 const LoginForm = () => {
   const [login, { data, isLoading, isError, isSuccess }] = useLoginMutation();
@@ -32,6 +33,10 @@ const LoginForm = () => {
   }, [isError]);
 
   const handleSubmit = user => {
+    const isValidate = validateUser(user);
+
+    if (!isValidate) return;
+
     login(user);
   };
 

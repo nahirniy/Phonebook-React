@@ -71,6 +71,7 @@ input {
   border-radius: 25px;
   padding: 5px;
   cursor: pointer;
+
 }
 
 .switch[data-theme='dark'] {

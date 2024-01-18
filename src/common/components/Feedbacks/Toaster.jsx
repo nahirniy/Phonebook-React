@@ -5,16 +5,15 @@ const ToasterMessage = () => {
     <Toaster
       position="top-center"
       toastOptions={{
+        duration: 4000,
         success: {
           style: {
-            duration: 4000,
             background: '#3d8d1a',
             color: '#ffffff',
           },
         },
         error: {
           style: {
-            duration: 4000,
             background: '#9a1524',
             color: '#ffffff',
           },

@@ -1,4 +1,4 @@
-import Wrapper from 'common/components/Wrapper';
+import Wrapper from 'common/components/Wrappers/Wrapper';
 import Animation from 'components/HomeContent/Animation';
 import Introduction from 'components/HomeContent/Introduction';
 

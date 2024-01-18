@@ -1,7 +1,12 @@
+import Wrapper from 'common/components/Wrappers/Wrapper';
 import RegisterForm from 'components/Forms/RegisterForm';
 
 const Register = () => {
-  return <RegisterForm />;
+  return (
+    <Wrapper>
+      <RegisterForm />
+    </Wrapper>
+  );
 };
 
 export default Register;

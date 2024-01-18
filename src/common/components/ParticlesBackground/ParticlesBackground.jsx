@@ -10,6 +10,8 @@ const ParticleBackground = () => {
   const [init, setInit] = useState(false);
   const theme = useSelector(state => state.userData.theme.value);
 
+  // value: '#a594d6';
+
   useEffect(() => {
     initParticlesEngine(async engine => {
       await loadFull(engine);

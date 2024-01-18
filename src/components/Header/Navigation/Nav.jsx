@@ -48,7 +48,7 @@ const Nav = () => {
             </>
           )}
         </div>
-        <div className="flex w-[75px] justify-end md:hidden">
+        <div className="flex w-[40px] justify-end md:hidden">
           <button onClick={toggleNavbar}>{isOpen ? <X /> : <Menu />}</button>
         </div>
       </nav>

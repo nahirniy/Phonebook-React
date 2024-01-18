@@ -6,12 +6,13 @@ import { useDispatch } from 'react-redux';
 import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
 import RegisterLoginLinks from 'common/components/Form/RegisterLoginLinks';
-import Button from 'common/components/Button';
-import Loader from 'common/components/Loader';
+import Button from 'common/components/Buttons/Button';
+import Loader from 'common/components/Feedbacks/Loader';
 
 import { useRegisterMutation } from 'services/authApi';
 import { handleError } from 'services/helpers';
 import { setToken, setUser } from '../../redux/authSlice';
+import { validateNewUser } from 'services/validataion';
 
 const RegisterForm = () => {
   const [register, { data, isLoading, isError, isSuccess, error }] =
@@ -34,6 +35,10 @@ const RegisterForm = () => {
   }, [isError, error]);
 
   const handleSubmit = user => {
+    const isValidate = validateNewUser(user);
+
+    if (!isValidate) return;
+
     register(user);
   };
 

@@ -1,14 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
-import Loader from 'common/components/Loader';
-import { useDeleteContactMutation, useGetContactsQuery } from 'services/contactsApi';
+import Loader from 'common/components/Feedbacks/Loader';
+import { useDeleteContactMutation } from 'services/contactsApi';
+import ContactModal from 'components/ContactModal/ContactModal';
+import { AnimatePresence } from 'framer-motion';
+import MiniButton from 'common/components/Buttons/MiniButton';
 
 const ContactItem = ({ id, name, number }) => {
+  const [modal, setModal] = useState(false);
   const [deleteContact, { isLoading, isError, isSuccess }] = useDeleteContactMutation();
-  const { isLoading: loadingGet } = useGetContactsQuery();
-
-  const loading = isLoading || loadingGet;
 
   useEffect(() => {
     if (!isSuccess) return;
@@ -22,25 +23,34 @@ const ContactItem = ({ id, name, number }) => {
     toast.error("We couldn't delete the contact. Try again!");
   }, [isError]);
 
+  const openModal = () => setModal(true);
+
+  const closeModal = () => setModal(false);
+
   return (
-    <li className="flex md:gap-9 justify-between items-center border rounded-lg p-2">
-      <p className="flex flex-col gap-1">
-        <span className="block">
-          <b>Name:</b> {name}
-        </span>
-        <span className="block">
-          <b>Number:</b> {number}
-        </span>
-      </p>
-      <button
-        className="w-[80px] flex items-center justify-center h-[35px]  text-[16px]  rounded-full bg-white text-emerald-800 hover:bg-emerald-600 hover:text-white transition-colors duration-300"
-        type="button"
-        disabled={loading}
-        onClick={() => deleteContact(id)}
-      >
-        {loading ? <Loader size="40" /> : 'Delete'}
-      </button>
-    </li>
+    <>
+      <li className="flex gap-1 md:gap-9 justify-between items-center border rounded-lg p-2">
+        <div className="flex flex-col gap-1">
+          <p>
+            <b>Name:</b> {name}
+          </p>
+          <p>
+            <b>Number:</b> {number}
+          </p>
+        </div>
+        <div className="flex flex-col gap-2">
+          <MiniButton type="button" handleClick={openModal}>
+            Edit
+          </MiniButton>
+          <MiniButton type="button" handleClick={() => deleteContact(id)}>
+            {isLoading ? <Loader size="40" /> : 'Delete'}
+          </MiniButton>
+        </div>
+      </li>
+      <AnimatePresence mode="wait">
+        {modal && <ContactModal id={id} name={name} number={number} close={closeModal} />}
+      </AnimatePresence>
+    </>
   );
 };
 

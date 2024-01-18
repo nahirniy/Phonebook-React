@@ -3,9 +3,9 @@ import { Outlet } from 'react-router-dom';
 
 import Header from 'components/Header/Header';
 import ParticleBackground from '../../common/components/ParticlesBackground/ParticlesBackground';
-import Section from 'common/components/Section';
-import ToasterMessage from 'common/components/Toaster';
-import Loader from 'common/components/Loader';
+import Section from 'common/components/Wrappers/Section';
+import ToasterMessage from 'common/components/Feedbacks/Toaster';
+import Loader from 'common/components/Feedbacks/Loader';
 
 const SharedLayout = () => {
   return (
