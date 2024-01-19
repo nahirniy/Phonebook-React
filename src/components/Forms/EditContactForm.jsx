@@ -6,22 +6,20 @@ import Button from 'common/components/Buttons/Button';
 import Loader from 'common/components/Feedbacks/Loader';
 import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
-import { useUpdateContactMutation } from 'services/contactsApi';
-import {  validateContact } from 'services/validataion';
+import { useUpdateContactMutation } from 'services/contacts-api';
+import { validateContact } from 'services/validataion';
 
-const EditContactForm = ({ id, name, number, closeModal }) => {
+const EditContactForm = ({ data: { id, name, number }, toggleModal }) => {
   const [updateContact, { error, isLoading, isError, isSuccess }] =
     useUpdateContactMutation();
 
   useEffect(() => {
     if (!isSuccess) return;
 
-    console.log(isSuccess);
-
     toast.success('Contact updated successfully');
 
-    closeModal();
-  }, [isSuccess, closeModal]);
+    toggleModal();
+  }, [isSuccess, toggleModal]);
 
   useEffect(() => {
     if (!isError) return;

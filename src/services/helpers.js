@@ -1,3 +1,4 @@
+import { fetchBaseQuery } from '@reduxjs/toolkit/query';
 import toast from 'react-hot-toast';
 
 export const handleError = error => {
@@ -26,3 +27,14 @@ export function getVisibleConatcts(contacts, filter) {
 
   return inContact;
 }
+
+export const baseQuery = fetchBaseQuery({
+  baseUrl: 'https://connections-api.herokuapp.com',
+  prepareHeaders: (headers, { getState }) => {
+    const token = getState().userData.auth.token;
+
+    if (token) headers.set('authorization', `Bearer ${token}`);
+
+    return headers;
+  },
+});

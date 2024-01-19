@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
 import Button from 'common/components/Buttons/Button';
-import { useAddContactMutation, useGetContactsQuery } from 'services/contactsApi';
+import { useAddContactMutation, useGetContactsQuery } from 'services/contacts-api';
 import Loader from 'common/components/Feedbacks/Loader';
 import { isContactDublicate } from 'services/helpers';
 import { validateContact } from 'services/validataion';
@@ -26,13 +26,14 @@ const ContactsForm = () => {
     toast.error(error.data.message);
   }, [isError, error]);
 
-  const handleSubmit = newContact => {
+  const handleSubmit = (newContact, { resetForm }) => {
     const inContact = isContactDublicate(contacts, newContact);
     const isValidate = validateContact(newContact);
 
     if (inContact || !isValidate) return;
 
     addContact(newContact);
+    resetForm();
   };
 
   return (

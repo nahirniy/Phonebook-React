@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { containerVariants } from 'services/animationConfig';
+import { containerVariants } from 'services/animation-config';
 
 const Wrapper = ({ children }) => {
   return (

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { getVisibleConatcts } from 'services/helpers';
 import ContactFilter from './ContactFilter';
 import ContactItem from './ContactItem';
-import { useGetContactsQuery } from 'services/contactsApi';
+import { useGetContactsQuery } from 'services/contacts-api';
 
 const ContactList = () => {
   const { data: contacts } = useGetContactsQuery();

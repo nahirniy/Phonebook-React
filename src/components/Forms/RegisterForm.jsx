@@ -9,7 +9,7 @@ import RegisterLoginLinks from 'common/components/Form/RegisterLoginLinks';
 import Button from 'common/components/Buttons/Button';
 import Loader from 'common/components/Feedbacks/Loader';
 
-import { useRegisterMutation } from 'services/authApi';
+import { useRegisterMutation } from 'services/auth-api';
 import { handleError } from 'services/helpers';
 import { setToken, setUser } from '../../redux/authSlice';
 import { validateNewUser } from 'services/validataion';

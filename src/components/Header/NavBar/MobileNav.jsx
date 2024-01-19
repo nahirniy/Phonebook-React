@@ -5,8 +5,8 @@ import {
   mobileNavContainerVariant,
   mobileNavListVariant,
   mobileNavExitProps,
-} from '../../../services/animationConfig';
-import UserMenu from '../UserMenu/UserMenu';
+} from '../../../services/animation-config';
+import UserMenu from './UserMenu';
 
 const MobileNav = ({ activeStyle, isAuth }) => {
   return (

@@ -6,7 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import MobileNav from './MobileNav';
-import UserMenu from '../UserMenu/UserMenu';
+import UserMenu from './UserMenu';
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);

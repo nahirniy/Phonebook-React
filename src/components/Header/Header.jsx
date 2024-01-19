@@ -1,5 +1,5 @@
 import Logo from './Logo/Logo';
-import Nav from './Navigation/Nav';
+import Nav from './NavBar/Nav';
 import ThemeToggle from './ThemeToggle/ThemeToggle';
 
 const Header = () => {

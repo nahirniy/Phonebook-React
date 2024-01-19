@@ -1,15 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 
 import Loader from 'common/components/Feedbacks/Loader';
-import { useDeleteContactMutation } from 'services/contactsApi';
-import ContactModal from 'components/ContactModal/ContactModal';
+import { useDeleteContactMutation } from 'services/contacts-api';
 import { AnimatePresence } from 'framer-motion';
 import MiniButton from 'common/components/Buttons/MiniButton';
+import Modal from 'common/components/Modal/Modal';
+import EditContactForm from 'components/Forms/EditContactForm';
+import useToggle from 'hooks/useToggle';
 
 const ContactItem = ({ id, name, number }) => {
-  const [modal, setModal] = useState(false);
   const [deleteContact, { isLoading, isError, isSuccess }] = useDeleteContactMutation();
+  const { modal, toggleModal } = useToggle(false);
 
   useEffect(() => {
     if (!isSuccess) return;
@@ -23,10 +25,6 @@ const ContactItem = ({ id, name, number }) => {
     toast.error("We couldn't delete the contact. Try again!");
   }, [isError]);
 
-  const openModal = () => setModal(true);
-
-  const closeModal = () => setModal(false);
-
   return (
     <>
       <li className="flex gap-1 md:gap-9 justify-between items-center border rounded-lg p-2">
@@ -39,7 +37,7 @@ const ContactItem = ({ id, name, number }) => {
           </p>
         </div>
         <div className="flex flex-col gap-2">
-          <MiniButton type="button" handleClick={openModal}>
+          <MiniButton type="button" handleClick={toggleModal}>
             Edit
           </MiniButton>
           <MiniButton type="button" handleClick={() => deleteContact(id)}>
@@ -48,7 +46,11 @@ const ContactItem = ({ id, name, number }) => {
         </div>
       </li>
       <AnimatePresence mode="wait">
-        {modal && <ContactModal id={id} name={name} number={number} close={closeModal} />}
+        {modal && (
+          <Modal toggleModal={toggleModal}>
+            <EditContactForm data={{ id, name, number }} toggleModal={toggleModal} />
+          </Modal>
+        )}
       </AnimatePresence>
     </>
   );
