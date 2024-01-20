@@ -5,7 +5,7 @@ import Loader from 'common/components/Feedbacks/Loader';
 import { useDeleteContactMutation } from 'services/contacts-api';
 import { AnimatePresence } from 'framer-motion';
 import MiniButton from 'common/components/Buttons/MiniButton';
-import Modal from 'common/components/Modal/Modal';
+import Modal from 'common/components/Modals/Modal';
 import EditContactForm from 'components/Forms/EditContactForm';
 import useToggle from 'hooks/useToggle';
 

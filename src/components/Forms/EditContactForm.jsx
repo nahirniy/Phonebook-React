@@ -6,12 +6,14 @@ import Button from 'common/components/Buttons/Button';
 import Loader from 'common/components/Feedbacks/Loader';
 import Form from 'common/components/Form/Form';
 import Input from 'common/components/Form/Input';
-import { useUpdateContactMutation } from 'services/contacts-api';
+import { useGetContactsQuery, useUpdateContactMutation } from 'services/contacts-api';
 import { validateContact } from 'services/validataion';
+import { isContactDublicate } from 'services/helpers';
 
 const EditContactForm = ({ data: { id, name, number }, toggleModal }) => {
   const [updateContact, { error, isLoading, isError, isSuccess }] =
     useUpdateContactMutation();
+  const { data: contacts } = useGetContactsQuery();
 
   useEffect(() => {
     if (!isSuccess) return;
@@ -28,9 +30,12 @@ const EditContactForm = ({ data: { id, name, number }, toggleModal }) => {
   }, [isError, error]);
 
   const handleSubmit = editedContact => {
-    const isValidate = validateContact(editedContact);
+    const updateContacts = contacts.filter(contacts => contacts.id !== id);
 
-    if (!isValidate) return;
+    const isValidate = validateContact(editedContact);
+    const inContact = isContactDublicate(updateContacts, editedContact);
+
+    if (!isValidate || inContact) return;
 
     updateContact({ editedContact, id });
   };

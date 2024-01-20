@@ -5,10 +5,10 @@ export const contactsApi = createApi({
   reducerPath: 'contacts',
   baseQuery,
   tagTypes: ['Contacts'],
+  refetchOnMountOrArgChange: true,
   endpoints: builder => ({
     getContacts: builder.query({
       query: () => '/contacts',
-      keepUnusedDataFor: 0,
       providesTags: ['Contacts'],
     }),
     addContact: builder.mutation({
