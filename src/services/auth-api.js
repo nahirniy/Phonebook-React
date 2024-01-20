@@ -4,6 +4,7 @@ import { baseQuery } from './helpers';
 export const authApi = createApi({
   reducerPath: 'authorization',
   baseQuery,
+  tagTypes: ['Contacts'],
   endpoints: builder => ({
     register: builder.mutation({
       query: body => ({ url: '/users/signup', method: 'POST', body }),
