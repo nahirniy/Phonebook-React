@@ -11,10 +11,10 @@ import './common/styles/tailwind.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
-    {/* <React.StrictMode> */}
-    <BrowserRouter basename="/goit-react-hw-08-phonebook">
-      <App />
-    </BrowserRouter>
-    {/* </React.StrictMode> */}
+    <React.StrictMode>
+      <BrowserRouter basename="/Phonebook-React">
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
   </Provider>
 );
